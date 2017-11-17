@@ -1,0 +1,21 @@
+{
+    "extends": [
+        "airbnb-base",
+        "prettier"
+    ],
+    "plugins": [
+        "import",
+        "prettier"
+    ],
+    "rules": {
+        "eqeqeq": ["warn"],
+        "radix": ["warn"],
+        "no-multi-assign": ["warn"],
+        "import/no-dynamic-require": ["warn"],
+        "prettier/prettier": ["error", {
+            "singleQuote": true,
+            "semi": false,
+            "tabWidth": 4
+        }]
+    }
+}
