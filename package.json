@@ -45,5 +45,5 @@
         "lint": "eslint --fix",
         "precommit": "lint-staged"
     },
-    "version": "1.0.0-rc2"
+    "version": "1.0.0"
 }
