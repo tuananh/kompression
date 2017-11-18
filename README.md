@@ -6,7 +6,7 @@
 
 This is a fork of [koa-compress](https://github.com/koajs/compress) with support for brotli compression.
 
-Because options for `zlib` and `iltorb` are not anything in common so including support for brotli
+Because `zlib` and `iltorb` options doesn't have much in common so including support for brotli
 would be a breaking change.
 
 I'm trimming down the available options in this package down to just `filter` and `threshold`.
@@ -14,16 +14,18 @@ I'm trimming down the available options in this package down to just `filter` an
 ## Example
 
 ```js
-var compress = require('kompression')
-var Koa = require('koa')
+const compress = require('kompression')
+const Koa = require('koa')
 
-var app = new Koa()
-app.use(compress({
-  filter: function (content_type) {
-    return /text/i.test(content_type)
-  },
-  threshold: 2048
-}))
+const app = new Koa()
+app.use(
+    compress({
+        filter: function(content_type) {
+            return /text/i.test(content_type)
+        },
+        threshold: 2048
+    })
+)
 ```
 
 ## Options
@@ -46,7 +48,7 @@ This bypasses the filter check.
 
 ```js
 app.use((ctx, next) => {
-  ctx.compress = true
-  ctx.body = fs.createReadStream(file)
+    ctx.compress = true
+    ctx.body = fs.createReadStream(file)
 })
 ```

@@ -279,7 +279,7 @@ describe('Compress', () => {
             .expect('asdf', done)
     })
 
-    it('brotli test', done => {
+    it('should compress with brotli when encoding is br', done => {
         const app = new Koa()
 
         app.use(compress())
