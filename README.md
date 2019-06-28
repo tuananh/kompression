@@ -1,6 +1,7 @@
 # Kompression
 
-[![npm](https://img.shields.io/npm/v/kompression.svg?style=flat-square)](https://npm.im/kompression)
+[![npm](https://img.shields.io/npm/v/kompression.svg)](https://npm.im/kompression)
+[![Build Status](https://dev.azure.com/me0499/kompresssion/_apis/build/status/tuananh.kompression?branchName=develop)](https://dev.azure.com/me0499/kompresssion/_build/latest?definitionId=2&branchName=develop)
 
 This is a fork of [koa-compress](https://github.com/koajs/compress) with support for brotli compression.
 
