@@ -52,9 +52,9 @@
     "main": "src/index.js",
     "name": "kompression",
     "scripts": {
-        "test": "NODE_ENV=test mocha --require should --reporter spec --exit",
-        "test-cov": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should",
-        "test-travis": "NODE_ENV=test node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should",
+        "test": "mocha --require should --reporter spec --exit",
+        "test-cov": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --require should",
+        "test-travis": "node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --require should",
         "lint": "eslint --fix",
         "precommit": "lint-staged"
     },
