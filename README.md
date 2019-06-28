@@ -1,8 +1,6 @@
 # Kompression
 
 [![npm](https://img.shields.io/npm/v/kompression.svg?style=flat-square)](https://npm.im/kompression)
-<!-- [![Build Status](https://travis-ci.org/koajs/compress.png)](https://travis-ci.org/koajs/compress) -->
-<!-- [![Greenkeeper badge](https://badges.greenkeeper.io/koajs/compress.svg)](https://greenkeeper.io/) -->
 
 This is a fork of [koa-compress](https://github.com/koajs/compress) with support for brotli compression.
 
