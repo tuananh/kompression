@@ -8,7 +8,7 @@ const status = require('statuses')
 const Stream = require('stream')
 const bytes = require('bytes')
 const zlib = require('zlib')
-const iltorb = require('iltorb')
+const brotli = require('zlib').createBrotliCompress ? require('zlib').createBrotliCompress : require('iltorb').compressStream
 
 /**
  * Encoding methods supported.
@@ -17,7 +17,7 @@ const iltorb = require('iltorb')
 const encodingMethods = {
     gzip: zlib.createGzip,
     deflate: zlib.createDeflate,
-    br: iltorb.compressStream
+    br: brotli
 }
 
 /**
