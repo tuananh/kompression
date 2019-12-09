@@ -309,4 +309,32 @@ describe('Compress', () => {
                 done()
             })
     })
+
+    it('should prefer brotli over gzip as encoding method', done => {
+        const app = new Koa()
+
+        app.use(
+            compress({
+                threshold: 0
+            })
+        )
+
+        app.use((ctx, next) => {
+            ctx.type = 'text/plain'
+            ctx.body = 'asdf'
+        })
+
+        request(app.listen())
+            .get('/')
+            .set('Accept-Encoding', 'gzip, deflate, br')
+            .expect(200)
+            .buffer()
+            .end((err, res) => {
+                if (err) return done(err)
+
+                res.should.have.header('Content-Encoding', 'br')
+
+                done()
+            })
+    })
 })
