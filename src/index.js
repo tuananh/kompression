@@ -8,7 +8,9 @@ const status = require('statuses')
 const Stream = require('stream')
 const bytes = require('bytes')
 const zlib = require('zlib')
-const brotli = require('zlib').createBrotliCompress ? require('zlib').createBrotliCompress : require('iltorb').compressStream
+const brotli = require('zlib').createBrotliCompress
+    ? require('zlib').createBrotliCompress
+    : require('iltorb').compressStream
 
 /**
  * Encoding methods supported.
@@ -49,12 +51,16 @@ module.exports = (options = {}) => {
         if (!(ctx.compress === true || filter(ctx.response.type))) return
 
         // identity
-        const encoding = ctx.acceptsEncodings(
-            'gzip',
-            'deflate',
-            'identity',
-            'br'
-        )
+        let encoding = null
+        if (ctx.acceptsEncodings('br') === 'br') {
+            encoding = 'br'
+        } else if (ctx.acceptsEncodings('gzip') === 'gzip') {
+            encoding = 'gzip'
+        } else if (ctx.acceptsEncodings('deflate') === 'deflate') {
+            encoding = 'deflate'
+        } else {
+            encoding = ctx.acceptsEncodings('identity')
+        }
         if (!encoding)
             ctx.throw(406, 'supported encodings: gzip, deflate, identity, br')
         if (encoding === 'identity') return
